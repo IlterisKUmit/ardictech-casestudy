@@ -7,70 +7,81 @@ import java.util.List;
 
 public class Main {
 
-    static boolean isVowelHarmonyExisted = false;
-    static List<String> dayDatesList;
     static String stringFormatDate = "";
     static String datePattern = "dd MMMMM yyyy";
-    static int i;
+    static String hasVowelHarmony = "";
 
-    public static boolean checkVowelHarmonyStatus(String inputWord){
+    static List<String> dayDatesList;
 
-        List<Character> charList = new ArrayList<>();
+    public static String checkVowelHarmonyStatus(String inputWord) {
 
-        for (i = 0; i < inputWord.length(); i++) {
-            charList.add(inputWord.charAt(i));
+        if (inputWord.contains(" ") || inputWord.isEmpty()){
+
+            return inputWord + " : Please give a proper word";
+
+        }else if(( inputWord.contains("e") ||
+                   inputWord.contains("i") ||
+                   inputWord.contains("ü") ||
+                   inputWord.contains("ö"))
+                   && (
+                   inputWord.contains("a") ||
+                   inputWord.contains("ı") ||
+                   inputWord.contains("u") ||
+                   inputWord.contains("o"))){
+
+            return inputWord + " : does not have Vowel Harmony.";
         }
-
-        if(( charList.contains('e') ||
-             charList.contains('i') ||
-             charList.contains('ü') ||
-             charList.contains('ö'))
-             && (
-             charList.contains('a') ||
-             charList.contains('ı') ||
-             charList.contains('u') ||
-             charList.contains('o'))
-        ){
-            return false;
-        }
-        return true;
+        
+        return inputWord + " : has Vowel Harmony.";
     }
 
 
-    public static List<String> mondaysList(){
+    public static List<String> sundaysList(int startYear, int endYear){
 
         List<String> dateList = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
 
-        for (int i = 1900; i<=2000; i++){
-            for (int j = 0; j <=11; j++){
-                calendar.set(i, j, 1);
-                int day_of_week = calendar.get(Calendar.DAY_OF_WEEK);
-                if(day_of_week==1){
-                    //add current date to list
-                    stringFormatDate = dateFormat.format(calendar.getTime());
-                    dateList.add(stringFormatDate);
+        if (startYear>endYear){
+
+            dateList.add("End year should be greater than start year");
+            return dateList;
+
+        }else{
+
+            for (int i = startYear; i<=endYear; i++){
+
+                for (int j = 0; j <=11; j++){
+
+                    calendar.set(i, j, 1);
+                    int day_of_week = calendar.get(Calendar.DAY_OF_WEEK);
+
+                    if(day_of_week==1){
+
+                        stringFormatDate = dateFormat.format(calendar.getTime());
+                        dateList.add(stringFormatDate);
+                    }
                 }
             }
+
+            return dateList;
         }
-        return dateList;
     }
 
 
     public static void main(String[] args) {
 
-        //this should return false - ExampleWord
-        isVowelHarmonyExisted = checkVowelHarmonyStatus("ExampleWord");
-        System.out.println("ExampleWord" + " has Vowel Harmony : " + isVowelHarmonyExisted);
+        //this should return false - ExampleWord does not have Vowel Harmony
+        hasVowelHarmony = checkVowelHarmonyStatus("ExampleWord");
+        System.out.println(hasVowelHarmony);
 
-        //this should return true - NormalWord
-        isVowelHarmonyExisted = checkVowelHarmonyStatus("NormalWord");
-        System.out.println("NormalWord" + " has Vowel Harmony : " + isVowelHarmonyExisted);
+        //this should return true - NormalWord has Vowel Harmony
+        hasVowelHarmony = checkVowelHarmonyStatus("NormalWord");
+        System.out.println(hasVowelHarmony);
 
-        //This should return all the sundays' dates as a list
+        //This should return all the sundays" dates as a list
         dayDatesList = new ArrayList<>();
-        dayDatesList = mondaysList();
+        dayDatesList = sundaysList(1900, 2000);
         System.out.println(dayDatesList);
 
     }
