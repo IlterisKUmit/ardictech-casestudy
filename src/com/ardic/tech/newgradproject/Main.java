@@ -7,11 +7,9 @@ import java.util.List;
 
 public class Main {
 
-    static String stringFormatDate = "";
     static String datePattern = "dd MMMMM yyyy";
+    static String stringFormatDate = "";
     static String hasVowelHarmony = "";
-
-    static List<String> dayDatesList;
 
     public static String checkVowelHarmonyStatus(String inputWord) {
 
@@ -36,16 +34,16 @@ public class Main {
     }
 
 
-    public static List<String> sundaysList(int startYear, int endYear){
+    public static List<String> findFirstSundaysOfMonthsFirstDay(int startYear, int endYear){
 
-        List<String> dateList = new ArrayList<>();
+        List<String> dateOfStrList = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
 
         if (startYear>endYear){
 
-            dateList.add("End year should be greater than start year");
-            return dateList;
+            dateOfStrList.add("End year should be greater than start year");
+            return dateOfStrList;
 
         }else{
 
@@ -59,12 +57,12 @@ public class Main {
                     if(day_of_week==1){
 
                         stringFormatDate = dateFormat.format(calendar.getTime());
-                        dateList.add(stringFormatDate);
+                        dateOfStrList.add(stringFormatDate);
                     }
                 }
             }
 
-            return dateList;
+            return dateOfStrList;
         }
     }
 
@@ -79,10 +77,21 @@ public class Main {
         hasVowelHarmony = checkVowelHarmonyStatus("NormalWord");
         System.out.println(hasVowelHarmony);
 
-        //This should return all the sundays" dates as a list
-        dayDatesList = new ArrayList<>();
-        dayDatesList = sundaysList(1900, 2000);
-        System.out.println(dayDatesList);
+        //this should return true - AnotherWord does not have Vowel Harmony
+        hasVowelHarmony = checkVowelHarmonyStatus("AnotherWord");
+        System.out.println(hasVowelHarmony);
+
+        //This should return all the sundays between dates 1900 - 2000
+        List<String> sundayDatesList1 = findFirstSundaysOfMonthsFirstDay(1900, 2000);
+        System.out.println(sundayDatesList1);
+
+        //This should return all the sundays between dates 1960 - 2000
+        List<String> sundayDatesList2 = findFirstSundaysOfMonthsFirstDay(1960, 2000);
+        System.out.println(sundayDatesList2);
+
+        //This should return all the sundays between dates 2001 - 2019
+        List<String> sundayDatesList3 = findFirstSundaysOfMonthsFirstDay(2001, 2019);
+        System.out.println(sundayDatesList3);
 
     }
 
