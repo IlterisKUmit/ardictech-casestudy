@@ -8,7 +8,7 @@ import java.util.List;
 public class Main {
 
     static boolean isVowelHarmonyExisted = false;
-    static List<String> mondayDatesList;
+    static List<String> dayDatesList;
     static String stringFormatDate = "";
     static String datePattern = "dd MMMMM yyyy";
     static int i;
@@ -69,9 +69,9 @@ public class Main {
         System.out.println("NormalWord" + " has Vowel Harmony : " + isVowelHarmonyExisted);
 
         //This should return all the sundays' dates as a list
-        mondayDatesList = new ArrayList<>();
-        mondayDatesList = mondaysList();
-        System.out.println(mondayDatesList);
+        dayDatesList = new ArrayList<>();
+        dayDatesList = mondaysList();
+        System.out.println(dayDatesList);
 
     }
 
