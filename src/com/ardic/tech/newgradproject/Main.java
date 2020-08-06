@@ -62,11 +62,11 @@ public class Main {
 
         //this should return false - ExampleWord
         isVowelHarmonyExisted = checkVowelHarmonyStatus("ExampleWord");
-        System.out.println("ExampleWord " + "has Vowel Harmony : " + isVowelHarmonyExisted);
+        System.out.println("ExampleWord" + " has Vowel Harmony : " + isVowelHarmonyExisted);
 
         //this should return true - NormalWord
         isVowelHarmonyExisted = checkVowelHarmonyStatus("NormalWord");
-        System.out.println("NormalWord " + "has Vowel Harmony : " + isVowelHarmonyExisted);
+        System.out.println("NormalWord" + " has Vowel Harmony : " + isVowelHarmonyExisted);
 
         //This should return all the sundays' dates as a list
         mondayDatesList = new ArrayList<>();
