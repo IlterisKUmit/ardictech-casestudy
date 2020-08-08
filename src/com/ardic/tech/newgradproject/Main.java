@@ -33,7 +33,6 @@ public class Main {
         return inputWord + " : has Vowel Harmony.";
     }
 
-
     public static List<String> findFirstSundaysOfMonthsFirstDay(int startYear, int endYear){
 
         List<String> dateOfStrList = new ArrayList<>();
@@ -66,7 +65,6 @@ public class Main {
         }
     }
 
-
     public static void main(String[] args) {
 
         //this should return false - ExampleWord does not have Vowel Harmony
@@ -94,5 +92,4 @@ public class Main {
         System.out.println(sundayDatesList3);
 
     }
-
 }
