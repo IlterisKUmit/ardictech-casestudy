@@ -42,7 +42,6 @@ public class Main {
         if (startYear>endYear){
 
             dateOfStrList.add("End year should be greater than start year");
-            return dateOfStrList;
 
         }else{
 
@@ -60,9 +59,8 @@ public class Main {
                     }
                 }
             }
-
-            return dateOfStrList;
         }
+        return dateOfStrList;
     }
 
     public static void main(String[] args) {

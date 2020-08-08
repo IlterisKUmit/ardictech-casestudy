@@ -2,24 +2,25 @@ package com.ardic.tech.newgradproject;
 
 public class BinaryTree {
 
-    Node root;
-
     private int data = 0;
-
-    private int  size = 0;
-
+    private int size = 0;
     private int edgeCtr = 0;
 
+    Node root;
+
     public BinaryTree() {
+
         root = new Node(data);
     }
 
     private static class Node {
+
         Node left;
         Node right;
         int data;
 
         public Node(int data) {
+
             this.data = data;
         }
     }
@@ -27,9 +28,12 @@ public class BinaryTree {
     public void addNode(int value) {
 
         if (size == 0) {
+
             root.data = value;
             size++;
+
         } else {
+
             addChild(root, new Node(value));
         }
     }
@@ -37,53 +41,36 @@ public class BinaryTree {
     public void addChild(Node parent, Node child) {
 
         if (parent == null) {
+
             return;
         }
 
         if (child.data < parent.data) {
 
             if (parent.left == null) {
+
                 parent.left = child;
                 size++;
                 edgeCtr++;
+
             } else {
+
                 addChild(parent.left, child);
             }
+
         } else {
 
             if (parent.right == null) {
+
                 parent.right = child;
                 size++;
                 edgeCtr++;
+
             } else {
+
                 addChild(parent.right, child);
             }
         }
-    }
-
-    public String toString() {
-
-        BinaryTree.Node current = root;
-        System.out.print("Traverse From Left ");
-
-        while (current.left != null && current.right != null) {
-
-            System.out.print(current.data + "->[" + current.left.data + " " + current.right.data + "] ");
-            current = current.left;
-        }
-
-        System.out.println();
-        System.out.print("Traverse From Right ");
-
-        current = root;
-
-        while (current.left != null && current.right != null) {
-
-            System.out.print(current.data + "->[" + current.left.data + " " + current.right.data + "] ");
-            current = current.right;
-        }
-
-        return "";
     }
 
     private void preOrder(BinaryTree.Node node) {
@@ -137,21 +124,25 @@ public class BinaryTree {
         System.out.println();
     }
 
-    public boolean detectAnomaly(BinaryTree t){
-        if(t.edgeCtr >= (t.size)){
+    public boolean detectAnomaly(BinaryTree t) {
+
+        if (t.edgeCtr >= (t.size)) {
+
             return true;
-        }else{
+
+        } else {
+
             return false;
         }
     }
 
     public static void main(String[] args) {
 
-        int array [] = {50,13,51,19,32,75,61,5,12,37,48,44};
+        int array[] = {50, 13, 51, 19, 32, 75, 61, 5, 12, 37, 48, 44};
 
         BinaryTree t = new BinaryTree();
 
-        for (int i = 0; i< array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             t.addNode(array[i]);
         }
 
