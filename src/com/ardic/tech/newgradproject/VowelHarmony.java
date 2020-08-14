@@ -6,7 +6,7 @@ import java.util.List;
 
 public class VowelHarmony {
 
-    final static int wordCountLimit = 1000000;
+    final static int wordCountLimitInList = 1000000;
     static String wordsStaticInput = "Lorem ipsum dolor sit amet, consectetur adipiscing " +
                                     "elit. Nulla vel varius purus. Etiam ut" +
                                     " erat dignissim, hendrerit elit a, ornare " +
@@ -43,7 +43,7 @@ public class VowelHarmony {
 
         List<String> resultList = new ArrayList<>();
 
-        if (input.size() > wordCountLimit){
+        if (input.size() > wordCountLimitInList){
 
             String errorMessage = "ERROR MESSAGE : Input is too long.";
 
