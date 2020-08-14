@@ -24,7 +24,7 @@ public class VowelHarmony {
                                     "viverra libero, eget feugiat metus molestie ac. " +
                                     "Donec maximus volutpat urna. Duis tortor quam, maximus" +
                                     " et nulla non, auctor tempus nunc. Nullam ac " +
-                                    "magna eget augue sodales luctus. ";
+                                    "magna eget augue sodales luctus.";
 
     public static List<String> inputSplitter(String input){
 
